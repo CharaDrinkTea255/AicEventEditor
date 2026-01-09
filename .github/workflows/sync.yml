@@ -18,6 +18,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote add upstream https://github.com/cocoAutumn/AicEventEditor.git
           git fetch upstream
-          git checkout main
-          git merge upstream/main
+          git checkout upstream/main -- .
+          git checkout HEAD -- .github/
+          git commit -m "Sync from upstream"
           git push origin main
