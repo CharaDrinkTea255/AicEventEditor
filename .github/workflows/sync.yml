@@ -20,5 +20,9 @@ jobs:
           git fetch upstream
           git checkout upstream/main -- .
           git checkout HEAD -- .github/
-          git commit -m "Sync from upstream"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Sync from upstream"
+          fi
           git push origin main
